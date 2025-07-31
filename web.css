@@ -1,0 +1,497 @@
+/* General Resets & Body Styles */
+:root {
+    --color-primary-bg: #F8F8F8; /* Lighter, cleaner background */
+    --color-secondary-bg: #EEEEEE; /* Subtle secondary background for contrast */
+    --color-text: #333333; /* Darker text for readability */
+    --color-light-text: #555555; /* For less prominent text */
+    --color-highlight: #A0A0A0; /* Subtle highlight */
+    --color-cta: #5A8D8F; /* A more sophisticated teal/green for CTA */
+    --color-cta-hover: #4B7A7C; /* Darker on hover */
+    --color-white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url(https://i.pinimg.com/1200x/b8/01/d8/b801d86dcd8f8cfb3086a906fe72fef8.jpg);
+    color: var(--color-text);
+    background-color: var(--color-primary-bg);
+    line-height: 1.7; /* Slightly increased line-height for better readability */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px; /* Slightly increased padding for content */
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-cta); /* CTA color on hover for links */
+    opacity: 0.8;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-text);
+    margin-bottom: 20px; /* Increased margin for headings */
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.8em; /* Slightly larger */
+    font-weight: 300;
+    letter-spacing: -0.02em; /* Subtle letter spacing adjustment */
+}
+
+h2 {
+    font-size: 2.6em; /* Slightly larger */
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px; /* More space below section titles */
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 1.5em; /* Slightly larger */
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 30px; /* Larger padding for better click area */
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Uppercase text for buttons */
+    letter-spacing: 0.05em;
+    font-size: 0.95em;
+}
+
+.btn-primary {
+    background-color: var(--color-cta);
+    color: var(--color-white);
+    border: 2px solid var(--color-cta);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-cta-hover); /* Darker CTA on hover */
+    border-color: var(--color-cta-hover);
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.main-header {
+    background-color: var(--color-white);
+    padding: 18px 0; /* Slightly less padding */
+    border-bottom: 1px solid var(--color-secondary-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03); /* Subtle shadow */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Bolder logo */
+    font-size: 1.7em;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 35px; /* More spacing between nav items */
+}
+
+.main-nav ul li a {
+    font-weight: 400;
+    font-size: 1em;
+    position: relative;
+    padding-bottom: 8px; /* More space for underline */
+    color: var(--color-light-text);
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Thicker underline */
+    background-color: var(--color-cta); /* CTA color for underline */
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother animation */
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+
+.header-icons .icon-link {
+    margin-left: 25px; /* More spacing */
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--color-light-text);
+    font-size: 1.3em; /* Larger icons */
+}
+
+.header-icons .icon-link:hover {
+    color: var(--color-cta);
+}
+
+.cart-count {
+    background-color: var(--color-cta);
+    color: var(--color-white);
+    font-size: 0.7em;
+    border-radius: 50%;
+    padding: 3px 7px; /* Slightly larger count bubble */
+    position: absolute;
+    top: -8px; /* Adjusted position */
+    right: -12px; /* Adjusted position */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    min-width: 20px; /* Ensure circular shape */
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('https://images.unsplash.com/photo-1549298928-513d778d975a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjU3MjN8MHwxfHNlYXJjaHwyMnx8bW9kZXJuJTIwZm9vdHdlYXIlMjBsaWZlc3R5bGV8ZW58MHx8fHwxNzA3NTU3Njg4&ixlib=rb-4.0.3&q=80&w=1920') no-repeat center center/cover;
+    height: 700px; /* Taller hero section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly darker overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeIn 1s ease-out forwards; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+    font-size: 4.8em; /* Even larger for impact */
+    margin-bottom: 20px;
+    color: var(--color-white);
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content p {
+    font-size: 1.4em; /* Larger paragraph text */
+    margin-bottom: 40px; /* More space below paragraph */
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Products Grid Section */
+.products-grid-section {
+    padding: 100px 0; /* More padding top/bottom */
+    background-color: var(--color-primary-bg);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px; /* Increased gap */
+    grid-auto-rows: auto; /* Adjust based on content */
+}
+
+.product-item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-secondary-bg);
+    text-align: center;
+    padding-bottom: 25px; /* More padding at bottom */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Stronger, more modern shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    display: flex; /* Flexbox for consistent internal alignment */
+    flex-direction: column;
+}
+
+.product-item:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Darker, more spread shadow */
+}
+
+.product-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+    /* Ensure content is centered or bottom-aligned if image is very tall */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align info to bottom */
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    flex-grow: 1; /* Allows image to fill available space */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother zoom */
+}
+
+.product-item:hover img {
+    transform: scale(1.08); /* More noticeable zoom */
+}
+
+.product-info {
+    padding: 20px; /* Increased padding */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out title and price */
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.product-info h3 {
+    font-size: 1.3em; /* Slightly larger product title */
+    margin-bottom: 8px; /* More space below title */
+    font-weight: 500; /* Medium weight for titles */
+    color: var(--color-text);
+}
+
+.product-info p {
+    font-size: 1.2em; /* Larger price */
+    color: var(--color-cta); /* Price in CTA color */
+    font-weight: 700; /* Bolder price */
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--color-secondary-bg);
+    color: var(--color-light-text);
+    padding: 50px 0; /* More padding */
+    text-align: center;
+    font-size: 0.95em;
+    border-top: 1px solid var(--color-highlight);
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    margin-bottom: 25px; /* More space */
+}
+
+.footer-nav ul li {
+    margin: 0 18px; /* More spacing */
+}
+
+.footer-nav ul li a {
+    color: var(--color-light-text);
+    font-weight: 400;
+}
+
+.footer-nav ul li a:hover {
+    color: var(--color-cta);
+}
+
+.social-media {
+    margin-bottom: 25px; /* More space */
+    display: flex;
+    gap: 20px; /* Space between icons */
+}
+
+.social-media a {
+    color: var(--color-highlight); /* Default icon color */
+    font-size: 1.5em; /* Larger icons */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media a:hover {
+    color: var(--color-cta); /* CTA color on hover */
+    transform: scale(1.15); /* Slightly larger scale */
+}
+
+.main-footer p {
+    color: var(--color-light-text);
+    font-size: 0.85em;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3.2em;
+    }
+    h2 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+    .main-nav ul li {
+        margin-left: 25px;
+    }
+    .header-icons .icon-link {
+        margin-left: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 20px; /* Row and column gap for wrapped items */
+    }
+
+    .main-nav ul li {
+        margin: 0; /* Reset individual margins */
+    }
+
+    .header-icons {
+        margin-top: 20px;
+    }
+
+    .hero-section {
+        height: 500px; /* Shorter hero section on smaller screens */
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 25px;
+    }
+
+    .product-item.large {
+        grid-column: span 1; /* Reset large items to single column */
+        grid-row: span 1;
+    }
+
+    .product-info h3 {
+        font-size: 1.15em;
+    }
+
+    .product-info p {
+        font-size: 1.05em;
+    }
+
+    .footer-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-nav ul li {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .logo a {
+        font-size: 1.5em;
+    }
+    .header-icons .icon-link {
+        font-size: 1.1em;
+        margin-left: 15px;
+    }
+    .cart-count {
+        top: -6px;
+        right: -8px;
+        padding: 2px 5px;
+        min-width: 18px;
+    }
+    .products-grid-section {
+        padding: 60px 0;
+    }
+    .main-footer {
+        padding: 30px 0;
+    }
+    .social-media {
+        gap: 15px;
+    }
+    .social-media a {
+        font-size: 1.3em;
+    }
+}
